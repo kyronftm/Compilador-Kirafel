@@ -36,6 +36,7 @@ Las operaciones aritmeticas solamente son simples, y son:
   * Division /
   * Modulo %
   * Potenciacion ^
+
 Tambien podemos realizar sumas de cadenas (+).
 
 # Condiciones
