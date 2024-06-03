@@ -3,9 +3,7 @@ package Principal;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  *
@@ -16,7 +14,7 @@ public class Main {
     public static Scanner lector = new Scanner(System.in);
     public static List<String> codigoLineas = new ArrayList<>();
     public static List<String> cadenasCodigo = new ArrayList<>();
-    public static List<String> tablaSimbolos = new ArrayList<>();
+    public static Set<String> tablaSimbolos = new HashSet<>();
     public static List<String> tabSimENTEROS = new ArrayList<>();
     public static List<String> tabSimFLOTANTES = new ArrayList<>();
     public static List<String> tabSimBOLEANOS = new ArrayList<>();
@@ -36,12 +34,7 @@ public class Main {
             String opcion = lector.nextLine();
             
             switch (opcion){
-                case "Y":
-                    nombreArchivo = obtenerNombreArchivo();
-                    guardadoNombre(nombreArchivo);
-                    lectorCodigo(nombreArchivo+".krfl");
-                    break;
-                case "y":
+                case "Y", "y":
                     nombreArchivo = obtenerNombreArchivo();
                     guardadoNombre(nombreArchivo);
                     lectorCodigo(nombreArchivo+".krfl");

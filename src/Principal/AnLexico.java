@@ -112,7 +112,38 @@ public class AnLexico {
                 token = "";
             }
         }
-        
+    }
+
+    public static List<String> tokenizadorComparacion(String linea) {
+        List<String> lineaDeTokens = new ArrayList<>();
+        StringBuilder token = new StringBuilder();
+        for (int i = 0; i < linea.length(); i++){
+            char c = linea.charAt(i);
+            if (c == '<' || c == '>' || c == '=' || c == '!'){
+                lineaDeTokens.add(token.toString());
+                token = new StringBuilder();
+                char c1 = linea.charAt(i+1);
+                if (c1 == '=') {
+                    token.append(c);
+                    token.append(c1);
+                    lineaDeTokens.add(token.toString());
+                    i += 2;
+                    token = new StringBuilder();
+                    c = linea.charAt(i);
+                } else {
+                    token.append(c);
+                    lineaDeTokens.add(token.toString());
+                    token = new StringBuilder();
+                    i++;
+                    c = linea.charAt(i);
+                }
+            }
+            token.append(c);
+            if (i == linea.length() - 1){
+                lineaDeTokens.add(token.toString());
+            }
+        }
+        return lineaDeTokens;
     }
     
     public static ArrayList<String> eliminaLineasVacias(ArrayList<String> lista){
